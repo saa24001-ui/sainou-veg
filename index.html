@@ -1,92 +1,207 @@
 <!DOCTYPE html>
-<!-- =========================================================
-     index.html  ―― サイトの入口（トップページ）
-     👤 担当：構成リーダー（　　　　　　　　）さん
-
-     このページは「お店の入口」です。
-     ・上に大きな写真（ヒーロー）
-     ・下に作物カードを並べる
-     カードをクリックすると、各作物のページに移動します。
-     新しい作物を追加するときは、下の <a class="card"> ... </a> を
-     1つコピーして、リンク先・写真・名前を変えればOK。
-     ========================================================= -->
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fresh Vegetable</title>
 
-  <!-- ✏️ ブラウザのタブに出る名前。学校・農場の名前に変えよう -->
-  <title>○○農業高校 直売所サイト</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Yu Gothic", sans-serif;
+    }
 
-  <!-- 見た目を読み込む（さわらなくてOK） -->
-  <link rel="stylesheet" href="style.css">
-  <!-- フォント（さわらなくてOK） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    body{
+      background: #f7f7f5;
+      color: #333;
+    }
+
+    /* トップ画像 */
+    .hero{
+      height: 100vh;
+      background-image: url("https://images.unsplash.com/photo-1542838132-92c53300491e");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-text{
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-text h1{
+      font-size: 70px;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p{
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero-text a{
+      text-decoration: none;
+      color: white;
+      border: 1px solid white;
+      padding: 15px 40px;
+      transition: 0.3s;
+    }
+
+    .hero-text a:hover{
+      background: white;
+      color: #333;
+    }
+
+    /* メニュー */
+    .menu{
+      padding: 100px 10%;
+    }
+
+    .menu-title{
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 60px;
+      color: #2d5a3d;
+    }
+
+    .cards{
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card{
+      width: 280px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover{
+      transform: translateY(-10px);
+    }
+
+    .card img{
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content{
+      padding: 25px;
+      text-align: center;
+    }
+
+    .card-content h2{
+      margin-bottom: 15px;
+      color: #2d5a3d;
+    }
+
+    .card-content a{
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #2d5a3d;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .card-content a:hover{
+      background: #3f7a54;
+    }
+
+    footer{
+      text-align: center;
+      padding: 30px;
+      background: #2d5a3d;
+      color: white;
+      margin-top: 80px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ▼ 上の帯（全ページ共通）✏️ 農場名を変えよう -->
-  <header class="site-header">
-    <div class="farm-name">🌱 ○○農業高校 直売所</div>
-    <div class="farm-sub">わたしたちが育てた作物を紹介します</div>
-  </header>
-
-  <!-- ▼ ヒーロー（一番上の大きな写真）✏️ images/hero.jpg を自分たちの写真に -->
+  <!-- トップ画面 -->
   <section class="hero">
-    <img src="images/hero.jpg" alt="学校農場の写真">
     <div class="hero-text">
-      <h1>畑から、まっすぐ。</h1>
-      <p>俺様が育てました</p>
+      <h1>Fresh Vegetable</h1>
+      <p>新鮮な野菜をあなたへ</p>
+      <a href="#menu">Explore</a>
     </div>
   </section>
 
-  <!-- ▼ ここから作物の一覧 -->
-  <main class="container">
-    <h2 class="section-title">今日のおすすめ</h2>
-    <p class="lead">気になる作物をタップしてみてください</p>
+  <!-- メニュー -->
+  <section class="menu" id="menu">
 
-    <div class="card-grid">
+    <h1 class="menu-title">Menu</h1>
 
-      <!-- ===== カード1：トマト（見本ページにリンク）===== -->
-      <a class="card" href="tomato.html">
-        <img src="images/tomato.jpg" alt="トマト">
-        <div class="card-body">
-          <span class="tag">完熟</span>
-          <h3>あま～いトマト</h3>
-          <p>朝もぎたて。生でガブッといけます。</p>
+    <div class="cards">
+
+      <!-- 野菜紹介 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c">
+
+        <div class="card-content">
+          <h2>野菜紹介</h2>
+          <p>育てている野菜について紹介します。</p>
+
+          <!-- ここを友達のページ名に変える -->
+          <a href="vegetable.html">View</a>
         </div>
-      </a>
+      </div>
 
-      <!-- ===== カード2：あなたの作物（コピーして増やせる）===== -->
-      <!-- ✏️ href を作ったページ名に、img を写真に、文章を自分の言葉に -->
-      <a class="card" href="template-product.html">
-        <img src="images/photo.jpg" alt="作物の名前">
-        <div class="card-body">
-          <span class="tag">タグ</span>
-          <h3>作物の名前</h3>
-          <p>ひとことアピール（20文字くらい）</p>
-        </div>
-      </a>
+      <!-- 栽培方法 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8">
 
-      <!-- ===== カード3：コピー用の見本（増やすときはこれを複製）===== -->
-      <a class="card" href="template-product.html">
-        <img src="images/photo.jpg" alt="作物の名前">
-        <div class="card-body">
-          <span class="tag">タグ</span>
-          <h3>作物の名前</h3>
-          <p>ひとことアピール（20文字くらい）</p>
+        <div class="card-content">
+          <h2>栽培方法</h2>
+          <p>野菜の育て方を紹介します。</p>
+
+          <a href="grow.html">View</a>
         </div>
-      </a>
+      </div>
+
+      <!-- お問い合わせ -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+
+        <div class="card-content">
+          <h2>お問い合わせ</h2>
+          <p>ご質問はこちらから。</p>
+
+          <a href="contact.html">View</a>
+        </div>
+      </div>
 
     </div>
-  </main>
 
-  <!-- ▼ 下の帯（全ページ共通）✏️ 学校名・年などを入れよう -->
-  <footer class="site-footer">
-    © 2026 ○○農業高校 ／ 農業情報活用の授業で作りました
+  </section>
+
+  <footer>
+    © Fresh Vegetable
   </footer>
 
 </body>
