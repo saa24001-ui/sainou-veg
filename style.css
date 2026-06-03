@@ -1,365 +1,108 @@
-/* =========================================================
-   style.css  ―― サイト全体の見た目を決めるファイル
-   👤 担当：デザイン担当（　　　　　　　　）さん
-
-   このファイルを編集すると、サイト全体の色や形が変わります。
-   まずは下の「テーマカラー」の色コードを変えてみよう。
-   色コードは #RRGGBB の形。https://www.color-sample.com/ などで探せます。
-   ========================================================= */
-
-/* ▼ テーマカラー（ここを変えると全ページの色が一気に変わる）✏️ */
-:root {
-  --color-bg:  black;  /* 背景（白色） */
-  --color-black:  black;  /* メインの緑（葉っぱ） */
-  --color-green-dark:#3f6128;  /* 濃い緑（見出しなど） */
-  --color-accent:    #e5623d;  /* アクセント（トマト色） */
-  --color-ink:       #33302a;  /* 文字の色 */
-  --color-card:      #ffffff;  /* カードの背景（白） */
-  --radius:          18px;     /* 角の丸み */
-  --shadow:          0 10px 30px rgba(63, 97, 40, 0.12); /* 影 */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-/* ▼ フォント（Google Fonts の Zen Maru Gothic を使用） */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Zen Maru Gothic", sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-ink);
-  line-height: 1.8;
-  /* 背景にうっすら模様（消してもOK） */
-  background-image: radial-gradient(rgba(92,138,58,0.06) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: var(--color-green-dark);
-}
-
-/* =========================================================
-   ヘッダー（全ページ共通の上の帯）
-   ========================================================= */
-.site-header {
-  background-color: var(--color-green);
-  color: #fff;
-  padding: 16px 24px;
-  text-align: center;
-}
-
-.site-header .farm-name {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.site-header .farm-sub {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-/* 中身を中央にそろえる共通の箱 */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* =========================================================
-   トップページの「ヒーロー」（一番上の大きな写真）
-   ========================================================= */
-.hero {
-  position: relative;
-  margin: 24px auto;
-  max-width: 960px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.hero img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
-.hero .hero-text {
-  position: absolute;
-  left: 28px;
-  bottom: 24px;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-}
-
-.hero .hero-text h1 {
-  font-size: 2rem;
-}
-
-/* =========================================================
-   セクションの見出し
-   ========================================================= */
-.section-title {
-  text-align: center;
-  color: var(--color-green-dark);
-  font-size: 1.6rem;
-  margin: 40px 0 8px;
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 4px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  margin: 10px auto 0;
-}
-
-.lead {
-  text-align: center;
-  color: #6b6657;
-  margin-bottom: 24px;
-}
-
-/* =========================================================
-   トップページの商品カード（クリックで各ページへ）
-   ========================================================= */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 22px;
-  margin: 20px 0 60px;
-}
-
-.card {
-  background: var(--color-card);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  color: var(--color-ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: block;
-}
-
-.card:hover {
-  transform: translateY(-6px);            /* マウスを乗せると少し浮く */
-  box-shadow: 0 16px 36px rgba(63, 97, 40, 0.2);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card .card-body {
-  padding: 14px 18px 20px;
-}
-
-.card .card-body h3 {
-  color: var(--color-green-dark);
-  font-size: 1.2rem;
-}
-
-.card .card-body p {
-  font-size: 0.92rem;
-  color: #6b6657;
-}
-
-.card .tag {
-  display: inline-block;
-  background: var(--color-accent);
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 2px 10px;
-  border-radius: 999px;
-  margin-bottom: 6px;
-}
-
-/* =========================================================
-   商品ページ（tomato.html など 1作物のページ）
-   ========================================================= */
-.product {
-  background: var(--color-card);
-  max-width: 760px;
-  margin: 30px auto 50px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.product .product-photo {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-}
-
-.product .product-body {
-  padding: 28px 30px 36px;
-}
-
-.product .catch {
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.product h1 {
-  color: var(--color-green-dark);
-  font-size: 2rem;
-  margin: 4px 0 18px;
-}
-
-/* 「だれに / おすすめの食べ方」などの小見出し */
-.product h2 {
-  color: var(--color-green);
-  font-size: 1.2rem;
-  border-left: 6px solid var(--color-accent);
-  padding-left: 12px;
-  margin: 26px 0 8px;
-}
-
-.back-link {
-  display: inline-block;
-  margin: 0 0 30px 20px;
-  color: var(--color-green-dark);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-/* =========================================================
-   フッター（全ページ共通の下の帯）
-   ========================================================= */
-.site-footer {
-  background: var(--color-green-dark);
-  color: #fff;
-  text-align: center;
-  padding: 22px;
-  font-size: 0.85rem;
-}
-
-/* スマホ向けの調整 */
-@media (max-width: 600px) {
-  .hero img { height: 220px; }
-  .hero .hero-text h1 { font-size: 1.4rem; }
-  .product .product-photo { height: 240px; }
-}
-
-
 
 body{
-  margin:0;
-  font-family: "Zen Maru Gothic", sans-serif;
-  background:#f5fff5;
-  color:#333;
+    font-family:"Yu Gothic",sans-serif;
+    background:linear-gradient(
+        to bottom,
+        #dff4ff 0%,
+        #eef7e8 50%,
+        #f8f2e8 100%
+    );
+    color:#333;
 }
 
-/* ヘッダー */
-.header{
-  background:#7cc576;
-  color:white;
-  text-align:center;
-  padding:40px 20px;
+/* トップ */
+
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-.header h1{
-  margin:0;
-  font-size:36px;
+.hero-content{
+    background:rgba(255,255,255,0.75);
+    padding:50px;
+    border-radius:30px;
+    backdrop-filter:blur(10px);
 }
 
-.header p{
-  margin-top:10px;
+.hero h1{
+    font-size:70px;
+    color:#4f6f52;
 }
 
-/* 戻るボタン */
-.back-area{
-  padding:20px;
+.hero p{
+    margin-top:15px;
+    font-size:20px;
 }
 
-.back-button{
-  text-decoration:none;
-  background:white;
-  color:#4b8b3b;
-  padding:10px 18px;
-  border-radius:10px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+.hero-btn{
+    display:inline-block;
+    margin-top:30px;
+    text-decoration:none;
+    background:#7ea172;
+    color:white;
+    padding:15px 35px;
+    border-radius:50px;
+    transition:.3s;
 }
 
-/* メイン */
-.product-page{
-  display:flex;
-  justify-content:center;
-  padding:20px;
+.hero-btn:hover{
+    transform:translateY(-5px);
 }
 
-/* 商品カード */
-.product-card{
-  background:white;
-  max-width:1000px;
-  width:100%;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+/* メニュー */
+
+.menu{
+    padding:100px 10%;
 }
 
-/* 写真 */
-.image-area img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
+.menu h2{
+    text-align:center;
+    font-size:40px;
+    color:#4f6f52;
+    margin-bottom:50px;
 }
 
-/* 情報 */
-.info-area{
-  padding:30px;
+.card-area{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
-.catch-copy{
-  color:#ff7b54;
-  font-weight:bold;
-  font-size:20px;
+.card{
+    width:280px;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:.3s;
 }
 
-.info-area h2{
-  font-size:40px;
-  margin-top:10px;
+.card:hover{
+    transform:translateY(-10px);
 }
 
-.description{
-  line-height:1.8;
-}
-
-/* 詳細 */
-.detail-box{
-  margin-top:30px;
-}
-
-.detail-box h3{
-  margin-top:25px;
-  color:#4b8b3b;
-}
-
-.detail-box p{
-  line-height:1.8;
+.card h3{
+    margin-bottom:15px;
+    color:#4f6f52;
 }
 
 /* フッター */
-.footer{
-  text-align:center;
-  padding:30px;
-  margin-top:40px;
-  background:#e4f5e1;
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:80px;
+    background:#4f6f52;
+    color:white;
 }
