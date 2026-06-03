@@ -9,7 +9,7 @@
 
 /* ▼ テーマカラー（ここを変えると全ページの色が一気に変わる）✏️ */
 :root {
-  --color-bg:  white;  /* 背景（黒色） */
+  --color-bg:  white;  /* 背景（白色） */
   --color-black:  black;  /* メインの緑（葉っぱ） */
   --color-green-dark:#3f6128;  /* 濃い緑（見出しなど） */
   --color-accent:    #e5623d;  /* アクセント（トマト色） */
