@@ -1,223 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fresh Vegetable</title>
-
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Yu Gothic", sans-serif;
-    }
-
-    body{
-      background: #f7f7f5;
-      color: #333;
-    }
-
-    /* トップ画像 */
-    .hero{
-      height: 100vh;
-      background-image: url("https://images.unsplash.com/photo-1542838132-92c53300491e");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .hero::before{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .hero-text{
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-
-    .hero-text h1{
-      font-size: 70px;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p{
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .hero-text a{
-      text-decoration: none;
-      color: white;
-      border: 1px solid white;
-      padding: 15px 40px;
-      transition: 0.3s;
-    }
-
-    .hero-text a:hover{
-      background: white;
-      color: #333;
-    }
-
-    /* メニュー */
-    .menu{
-      padding: 100px 10%;
-    }
-
-    .menu-title{
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 60px;
-      color: #2d5a3d;
-    }
-
-    .cards{
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .card{
-      width: 280px;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-
-    .card:hover{
-      transform: translateY(-10px);
-    }
-
-    .card img{
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content{
-      padding: 25px;
-      text-align: center;
-    }
-
-    .card-content h2{
-      margin-bottom: 15px;
-      color: #2d5a3d;
-    }
-
-    .card-content a{
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-      color: white;
-      background: #2d5a3d;
-      padding: 10px 25px;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-
-    .card-content a:hover{
-      background: #3f7a54;
-    }
-
-    footer{
-      text-align: center;
-      padding: 30px;
-      background: #2d5a3d;
-      color: white;
-      margin-top: 80px;
-    }
-  </style>
-</head><!DOCTYPE html>
-<html lang="ja">
-<head>
     <meta charset="UTF-8">
-    <title>野菜サイト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Vegetable</title>
 
-    <!-- CSSと接続 -->
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <h1>野菜サイトへようこそ！</h1>
-
-</body>
-</html>
 
 <body>
 
-  <!-- トップ画面 -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Fresh Vegetable</h1>
-      <p>新鮮な野菜をあなたへ</p>
-      <a href="#menu">Explore</a>
-    </div>
-  </section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fresh Vegetable</h1>
+            <p>自然の恵みをあなたへ</p>
 
-  <!-- メニュー -->
-  <section class="menu" id="menu">
-
-    <h1 class="menu-title">Menu</h1>
-
-    <div class="cards">
-
-      <!-- 野菜紹介 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c">
-
-        <div class="card-content">
-          <h2>野菜紹介</h2>
-          <p>育てている野菜について紹介します。</p>
-
-          <!-- ここを友達のページ名に変える -->
-          <a href="template-product.html">View</a>
+            <a href="#menu" class="hero-btn">
+                Explore
+            </a>
         </div>
-      </div>
+    </section>
 
-      <!-- 栽培方法 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8">
+    <section class="menu" id="menu">
 
-        <div class="card-content">
-          <h2>栽培方法</h2>
-          <p>野菜の育て方を紹介します。</p>
+        <h2>Contents</h2>
 
-          <a href="grow.html">View</a>
+        <div class="card-area">
+
+            <a href="template-product.html" class="card">
+                <h3>🥕 野菜紹介</h3>
+                <p>育てている野菜について</p>
+            </a>
+
+            <a href="grow.html" class="card">
+                <h3>🌱 栽培方法</h3>
+                <p>野菜の育て方を紹介</p>
+            </a>
+
+            <a href="contact.html" class="card">
+                <h3>📮 お問い合わせ</h3>
+                <p>質問はこちら</p>
+            </a>
+
         </div>
-      </div>
 
-      <!-- お問い合わせ -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    </section>
 
-        <div class="card-content">
-          <h2>お問い合わせ</h2>
-          <p>ご質問はこちらから。</p>
-
-          <a href="contact.html">View</a>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer>
-    © Fresh Vegetable
-  </footer>
+    <footer>
+        © Fresh Vegetable
+    </footer>
 
 </body>
 </html>
